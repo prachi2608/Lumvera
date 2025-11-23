@@ -1,0 +1,133 @@
+/* Mantine base styles */
+@import '@mantine/core/styles.layer.css';
+@import '@mantine/notifications/styles.css';
+
+:root {
+  --mantine-color-primary-0: #fff8e1;
+  --mantine-color-primary-1: #ffecb3;
+  --mantine-color-primary-2: #ffe082;
+  --mantine-color-primary-3: #ffd54f;
+  --mantine-color-primary-4: #ffca28;
+  --mantine-color-primary-5: #ffc107; /* Main primary color */
+  --mantine-color-primary-6: #ffb300;
+  --mantine-color-primary-7: #ffa000;
+  --mantine-color-primary-8: #ff8f00;
+  --mantine-color-primary-9: #ff6f00;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Add some basic typography */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* Add some spacing utilities */
+.mt-0 { margin-top: 0 !important; }
+.mb-0 { margin-bottom: 0 !important; }
+.mt-1 { margin-top: 0.5rem !important; }
+.mb-1 { margin-bottom: 0.5rem !important; }
+.mt-2 { margin-top: 1rem !important; }
+.mb-2 { margin-bottom: 1rem !important; }
+.mt-3 { margin-top: 1.5rem !important; }
+.mb-3 { margin-bottom: 1.5rem !important; }
+
+/* Add some flex utilities */
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+/* Add some text utilities */
+.text-center {
+  text-align: center;
+}
+
+/* Add some card styles */
+.card {
+  background: var(--mantine-color-body);
+  border-radius: var(--mantine-radius-md);
+  padding: var(--mantine-spacing-lg);
+  box-shadow: var(--mantine-shadow-md);
+}
+
+/* Add some button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.5rem;
+  border-radius: var(--mantine-radius-md);
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: var(--mantine-color-primary-5);
+  color: var(--mantine-color-black);
+}
+
+.btn-primary:hover {
+  background-color: var(--mantine-color-primary-6);
+  transform: translateY(-1px);
+}
+
+/* Add some container styles */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Add some section styles */
+.section {
+  padding: 4rem 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .section {
+    padding: 2rem 0;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+}
