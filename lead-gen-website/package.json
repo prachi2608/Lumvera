@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "start": "node server.js"
+    "build-if-needed": "if [ ! -d \"dist\" ]; then npm run build; fi",
+    "start": "npm run build-if-needed && node server.js"
   },
   "dependencies": {
     "@mantine/core": "^8.3.9",
