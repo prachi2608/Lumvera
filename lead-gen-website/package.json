@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
+  "dev": "vite",
+  "build": "tsc -b && vite build",
+  "preview": "vite preview",
+  "start": "vite preview --port $PORT"
+},
   "dependencies": {
     "@mantine/core": "^8.3.9",
     "@mantine/form": "^8.3.9",
