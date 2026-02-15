@@ -8,14 +8,8 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Serve the static files from dist
+// Serve static files from dist
 app.use(express.static(path.join(__dirname, 'dist')));
 
-// SPA fallback route (all other routes go to index.html)
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// SPA fallback for React Router
+app.get('*',*
