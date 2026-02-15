@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs';
+import { sendContactEmail } from './src/services/emailService.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -11,6 +12,9 @@ const PORT = process.env.PORT || 8080;
 
 console.log('Current working directory:', process.cwd());
 console.log('__dirname:', __dirname);
+
+// Middleware to parse JSON
+app.use(express.json());
 
 // The dist directory should be in the same directory as server.js
 const distPath = path.join(__dirname, 'dist');
@@ -38,6 +42,44 @@ console.log('Serving static files from:', distPath);
 
 // Serve static files from dist
 app.use(express.static(distPath));
+
+// API endpoint for contact form
+app.post('/api/contact', async (req, res) => {
+  try {
+    const { name, email, phone, message } = req.body;
+
+    // Basic validation
+    if (!name || !email || !message) {
+      return res.status(400).json({
+        success: false,
+        error: 'Name, email, and message are required'
+      });
+    }
+
+    // Email validation
+    const emailRegex = /^\S+@\S+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({
+        success: false,
+        error: 'Invalid email format'
+      });
+    }
+
+    // Send email
+    await sendContactEmail({ name, email, phone, message });
+
+    res.json({
+      success: true,
+      message: 'Thank you for your message! We\'ll get back to you soon.'
+    });
+  } catch (error) {
+    console.error('Error processing contact form:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Failed to send message. Please try again later.'
+    });
+  }
+});
 
 // SPA fallback for React Router - serve index.html for all non-API routes
 app.get('*', (req, res) => {
