@@ -9,19 +9,60 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// Determine the correct path to the dist directory
-let distPath = path.join(__dirname, 'dist');
+console.log('Current working directory:', process.cwd());
+console.log('__dirname:', __dirname);
 
-// Check if dist exists in current directory, if not try relative to project root
-if (!fs.existsSync(distPath)) {
-  distPath = path.join(__dirname, '..', '..', 'dist');
+// Check if we're in the lead-gen-website directory
+const isInLeadGenWebsite = __dirname.includes('lead-gen-website');
+console.log('Is in lead-gen-website directory:', isInLeadGenWebsite);
+
+// Determine the correct path to the dist directory
+let distPath;
+
+if (isInLeadGenWebsite) {
+  // We're in /app/lead-gen-website, so dist should be at /app/lead-gen-website/dist
+  distPath = path.join(__dirname, 'dist');
+} else {
+  // We're in /app, so dist should be at /app/lead-gen-website/dist
+  distPath = path.join(__dirname, 'lead-gen-website', 'dist');
 }
 
-// Check if dist exists, if not log error
+console.log('Looking for dist at:', distPath);
+
+// Check if dist exists
 if (!fs.existsSync(distPath)) {
   console.error('Dist directory not found at:', distPath);
   console.error('Available directories in __dirname:', fs.readdirSync(__dirname));
-  process.exit(1);
+
+  // Try to find dist anywhere in the project
+  const findDist = (dir) => {
+    const files = fs.readdirSync(dir);
+    for (const file of files) {
+      const fullPath = path.join(dir, file);
+      const stat = fs.statSync(fullPath);
+      if (stat.isDirectory()) {
+        if (file === 'dist') {
+          return fullPath;
+        }
+        try {
+          const found = findDist(fullPath);
+          if (found) return found;
+        } catch (e) {
+          // Skip directories we can't read
+        }
+      }
+    }
+    return null;
+  };
+
+  const foundDist = findDist(__dirname);
+  if (foundDist) {
+    console.log('Found dist at:', foundDist);
+    distPath = foundDist;
+  } else {
+    console.error('Could not find dist directory anywhere');
+    process.exit(1);
+  }
 }
 
 console.log('Serving static files from:', distPath);
@@ -35,6 +76,7 @@ app.get('*', (req, res) => {
   if (fs.existsSync(indexPath)) {
     res.sendFile(indexPath);
   } else {
+    console.error('Index file not found at:', indexPath);
     res.status(404).send('Index file not found');
   }
 });
