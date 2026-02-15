@@ -1,6 +1,7 @@
 import { Routes, Route, Link as RouterLink, useLocation } from 'react-router-dom';
-import { AppShell, Text, Group, Button, Container } from '@mantine/core';
-import { IconBrandGithub, IconBrandTwitter, IconBrandLinkedin } from '@tabler/icons-react';
+import { AppShell, Text, Group, Button, Container, Drawer, Stack } from '@mantine/core';
+import { IconBrandGithub, IconBrandTwitter, IconBrandLinkedin, IconMenu2 } from '@tabler/icons-react';
+import { useState } from 'react';
 
 // Pages
 import Home from './pages/Home';
@@ -11,6 +12,7 @@ import ContactUs from './pages/ContactUs';
 
 export default function App() {
   const location = useLocation();
+  const [mobileMenuOpened, setMobileMenuOpened] = useState(false);
   
   const links = [
     { label: 'Home', link: '/' },
@@ -53,12 +55,46 @@ export default function App() {
               ))}
             </Group>
 
-            <Button variant="light" color="yellow" size="sm" hiddenFrom="sm">
+            <Button 
+              variant="light" 
+              color="yellow" 
+              size="sm" 
+              hiddenFrom="sm"
+              leftSection={<IconMenu2 size={16} />}
+              onClick={() => setMobileMenuOpened(true)}
+            >
               Menu
             </Button>
           </Group>
         </Container>
       </AppShell.Header>
+
+      {/* Mobile Menu Drawer */}
+      <Drawer
+        opened={mobileMenuOpened}
+        onClose={() => setMobileMenuOpened(false)}
+        title="Navigation"
+        padding="md"
+        size="sm"
+        position="right"
+      >
+        <Stack gap="md">
+          {links.map((item) => (
+            <Button
+              key={item.label}
+              component={RouterLink}
+              to={item.link}
+              variant={location.pathname === item.link ? 'light' : 'subtle'}
+              color={location.pathname === item.link ? 'yellow' : 'gray'}
+              size="md"
+              fullWidth
+              onClick={() => setMobileMenuOpened(false)}
+            >
+              {item.label}
+            </Button>
+          ))}
+        </Stack>
+      </Drawer>
 
       <AppShell.Main>
         <Routes>
