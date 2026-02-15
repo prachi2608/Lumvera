@@ -18,7 +18,7 @@ export const sendContactEmail = async (contactData) => {
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: process.env.CONTACT_EMAIL || 'contact@windsurf.com', // Default to the email shown on the contact page
+      to: process.env.CONTACT_EMAIL || 'prachiraval2608@gmail.com', // Default to user's email
       subject: `New Contact Form Submission from ${contactData.name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
