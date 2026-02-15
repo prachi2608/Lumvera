@@ -4,6 +4,8 @@ import { fileURLToPath } from 'url';
 import fs from 'fs';
 import { sendContactEmail } from './src/services/emailService.js';
 
+// Force rebuild trigger - updated 2026-02-15
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
