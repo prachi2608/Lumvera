@@ -8,19 +8,19 @@ import '@mantine/notifications/styles.css';
 import App from './App';
 
 const theme = createTheme({
-  primaryColor: 'yellow',
+  primaryColor: 'brand',
   colors: {
-    yellow: [
-      '#fff8e1',
-      '#ffecb3',
-      '#ffe082',
-      '#ffd54f',
-      '#ffca28',
-      '#ffc107',
-      '#ffb300',
-      '#ffa000',
-      '#ff8f00',
-      '#ff6f00',
+    brand: [
+      '#F8F5FF', // Very light pastel purple
+      '#F0EBFF', // Light pastel purple
+      '#E3D9FF', // Soft lavender
+      '#D4C5FF', // Light purple
+      '#C5B1FF', // Medium light purple
+      '#B08FFF', // Pastel purple primary
+      '#9B6BFF', // Slightly deeper purple
+      '#8A4FFF', // Medium purple
+      '#7933FF', // Deeper purple
+      '#6B1FFF', // Dark purple
     ],
   },
   fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',

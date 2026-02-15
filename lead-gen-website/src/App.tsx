@@ -37,7 +37,7 @@ export default function App() {
       <AppShell.Header withBorder={false}>
         <Container size="xl" h="100%">
           <Group justify="space-between" h="100%">
-            <Text size="xl" fw={700} component={RouterLink} to="/" c="yellow.7">
+            <Text size="xl" fw={700} component={RouterLink} to="/" c="brand.5">
               Lumvera
             </Text>
             
@@ -48,7 +48,7 @@ export default function App() {
                   component={RouterLink}
                   to={item.link}
                   variant={location.pathname === item.link ? 'light' : 'subtle'}
-                  color={location.pathname === item.link ? 'yellow' : 'gray'}
+                  color={location.pathname === item.link ? 'brand' : 'gray'}
                 >
                   {item.label}
                 </Button>
@@ -57,7 +57,7 @@ export default function App() {
 
             <Button 
               variant="light" 
-              color="yellow" 
+              color="brand" 
               size="sm" 
               hiddenFrom="sm"
               leftSection={<IconMenu2 size={16} />}
@@ -85,7 +85,7 @@ export default function App() {
               component={RouterLink}
               to={item.link}
               variant={location.pathname === item.link ? 'light' : 'subtle'}
-              color={location.pathname === item.link ? 'yellow' : 'gray'}
+              color={location.pathname === item.link ? 'brand' : 'gray'}
               size="md"
               fullWidth
               onClick={() => setMobileMenuOpened(false)}

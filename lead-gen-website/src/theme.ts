@@ -4,16 +4,16 @@ import { createTheme } from '@mantine/core';
 const theme = createTheme({
   colors: {
     brand: [
-      '#FEF9E7',
-      '#FEF1C3',
-      '#FEE59A',
-      '#FDD871',
-      '#FCCB48',
-      '#F7D21E', // Primary brand color
-      '#E2B91E',
-      '#C9A11B',
-      '#B08A18',
-      '#8E6D15',
+      '#F8F5FF', // Very light pastel purple
+      '#F0EBFF', // Light pastel purple
+      '#E3D9FF', // Soft lavender
+      '#D4C5FF', // Light purple
+      '#C5B1FF', // Medium light purple
+      '#B08FFF', // Pastel purple primary
+      '#9B6BFF', // Slightly deeper purple
+      '#8A4FFF', // Medium purple
+      '#7933FF', // Deeper purple
+      '#6B1FFF', // Dark purple
     ],
   },
   fontFamily: 'Inter, sans-serif',
