@@ -19,7 +19,7 @@ export const sendContactEmail = async (contactData) => {
     console.log('🔧 Initializing Resend client...');
 
     const data = await resend.emails.send({
-      from: 'Lumvera Contact <noreply@lumvera.dev>', // Use your verified domain
+      from: 'Lumvera Contact <onboarding@resend.dev>', // Use Resend's verified domain
       to: process.env.CONTACT_EMAIL || 'prachiraval2608@gmail.com',
       subject: `New Contact Form Submission from ${contactData.name}`,
       html: `
@@ -42,13 +42,17 @@ export const sendContactEmail = async (contactData) => {
       replyTo: contactData.email
     });
 
-    console.log('✅ Email sent successfully via Resend:', data.id || 'No ID returned');
-    console.log('📊 Email details:', {
-      id: data.id,
-      to: data.to,
-      from: data.from
-    });
-    return { success: true, messageId: data.id };
+    // Check if the response contains an error
+    if (data.error) {
+      console.error('❌ Resend API returned an error:');
+      console.error('Status Code:', data.error.statusCode);
+      console.error('Message:', data.error.message);
+      throw new Error(`Resend API Error: ${data.error.message}`);
+    }
+
+    console.log('✅ Email sent successfully via Resend!');
+    console.log('📧 Email ID:', data.data?.id || 'No ID returned');
+    return { success: true, messageId: data.data?.id };
   } catch (error) {
     console.error('❌ Error sending email via Resend:');
     console.error('Error name:', error.name);
