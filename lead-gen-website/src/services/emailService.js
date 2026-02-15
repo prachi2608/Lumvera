@@ -12,12 +12,7 @@ const createTransporter = () => {
 };
 
 // Send contact form email
-export const sendContactEmail = async (contactData: {
-  name: string;
-  email: string;
-  phone?: string;
-  message: string;
-}) => {
+export const sendContactEmail = async (contactData) => {
   try {
     const transporter = createTransporter();
 
