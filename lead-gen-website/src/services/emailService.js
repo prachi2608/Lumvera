@@ -17,8 +17,10 @@ const createTransporter = () => {
 // Send contact form email
 export const sendContactEmail = async (contactData) => {
   try {
+    console.log('🔧 Creating email transporter...');
     const transporter = createTransporter();
 
+    console.log('📧 Preparing email message...');
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: process.env.CONTACT_EMAIL || 'prachiraval2608@gmail.com', // Default to user's email
@@ -43,11 +45,41 @@ export const sendContactEmail = async (contactData) => {
       replyTo: contactData.email // Allow replying directly to the sender
     };
 
+    console.log('📨 Sending email...');
+    console.log('From:', mailOptions.from);
+    console.log('To:', mailOptions.to);
+    console.log('Subject:', mailOptions.subject);
+
     const result = await transporter.sendMail(mailOptions);
-    console.log('Email sent successfully:', result.messageId);
+    console.log('✅ Email sent successfully:', result.messageId);
+    console.log('📊 Email details:', {
+      messageId: result.messageId,
+      accepted: result.accepted,
+      rejected: result.rejected,
+      response: result.response
+    });
     return { success: true, messageId: result.messageId };
   } catch (error) {
-    console.error('Error sending email:', error);
-    throw new Error('Failed to send email');
+    console.error('❌ Error sending email:');
+    console.error('Error name:', error.name);
+    console.error('Error message:', error.message);
+    console.error('Error code:', error.code);
+    console.error('Full error object:', error);
+
+    // Check for common Gmail SMTP errors
+    if (error.code === 'EAUTH') {
+      console.error('🔐 AUTHENTICATION ERROR: Check your Gmail credentials');
+      console.error('- Verify EMAIL_USER is correct');
+      console.error('- Verify EMAIL_PASS is your Gmail app password (not regular password)');
+      console.error('- Make sure 2FA is enabled on Gmail account');
+    } else if (error.code === 'ENOTFOUND') {
+      console.error('🌐 NETWORK ERROR: Cannot reach Gmail SMTP servers');
+    } else if (error.code === 'ECONNREFUSED') {
+      console.error('🚫 CONNECTION REFUSED: Gmail SMTP port may be blocked');
+    } else if (error.code === 'ETIMEDOUT') {
+      console.error('⏰ TIMEOUT ERROR: Connection to Gmail SMTP timed out');
+    }
+
+    throw new Error(`Failed to send email: ${error.message}`);
   }
 };

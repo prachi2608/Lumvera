@@ -3,6 +3,10 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs';
 import { sendContactEmail } from './src/services/emailService.js';
+import dotenv from 'dotenv';
+
+// Load environment variables from .env file (for local testing)
+dotenv.config();
 
 // Force rebuild trigger - updated 2026-02-15
 
