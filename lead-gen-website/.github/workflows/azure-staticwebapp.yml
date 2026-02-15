@@ -25,6 +25,7 @@ env:
   API_LOCATION: "api" # location of your api source code - optional
   APP_ARTIFACT_LOCATION: "build" # location of client code build output
   AZURE_STATIC_WEB_APPS_API_TOKEN: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }} # secret containing deployment token for your static web app
+  SKIP_DEPLOY_ON_MISSING_SECRETS: true # skip deployment if token is missing
 
 permissions:
   contents: read
@@ -48,6 +49,7 @@ jobs:
           azure_static_web_apps_api_token: ${{ env.AZURE_STATIC_WEB_APPS_API_TOKEN }} # secret containing api token for app
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
+          skip_deploy_on_missing_secrets: ${{ env.SKIP_DEPLOY_ON_MISSING_SECRETS }}
           ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: ${{ env.APP_LOCATION }}
