@@ -8,11 +8,11 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Serve Vite build
+// Serve the static files from dist
 app.use(express.static(path.join(__dirname, 'dist')));
 
-// SPA fallback for React Router
-app.get('*', (req, res) => {
+// SPA fallback route (all other routes go to index.html)
+app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
