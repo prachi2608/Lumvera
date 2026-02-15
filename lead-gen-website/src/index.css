@@ -131,3 +131,13 @@ p {
     font-size: 2rem;
   }
 }
+
+/* Infinite Scroller Animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
