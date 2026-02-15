@@ -1,29 +1,26 @@
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
+import dotenv from 'dotenv';
 
-// Create email transporter
-const createTransporter = () => {
-  return nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 587,
-    secure: false,
-    requireTLS: true,
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS // App password for Gmail
-    }
-  });
-};
+// Load environment variables
+dotenv.config();
+
+// Initialize Resend with API key
+const apiKey = process.env.RESEND_API_KEY;
+if (!apiKey) {
+  console.error('❌ RESEND_API_KEY environment variable is not set!');
+  console.error('Please check your .env file and ensure RESEND_API_KEY is defined.');
+}
+
+const resend = new Resend(apiKey);
 
 // Send contact form email
 export const sendContactEmail = async (contactData) => {
   try {
-    console.log('🔧 Creating email transporter...');
-    const transporter = createTransporter();
+    console.log('🔧 Initializing Resend client...');
 
-    console.log('📧 Preparing email message...');
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: process.env.CONTACT_EMAIL || 'prachiraval2608@gmail.com', // Default to user's email
+    const data = await resend.emails.send({
+      from: 'Lumvera Contact <noreply@lumvera.dev>', // Use your verified domain
+      to: process.env.CONTACT_EMAIL || 'prachiraval2608@gmail.com',
       subject: `New Contact Form Submission from ${contactData.name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -42,42 +39,34 @@ export const sendContactEmail = async (contactData) => {
           </p>
         </div>
       `,
-      replyTo: contactData.email // Allow replying directly to the sender
-    };
-
-    console.log('📨 Sending email...');
-    console.log('From:', mailOptions.from);
-    console.log('To:', mailOptions.to);
-    console.log('Subject:', mailOptions.subject);
-
-    const result = await transporter.sendMail(mailOptions);
-    console.log('✅ Email sent successfully:', result.messageId);
-    console.log('📊 Email details:', {
-      messageId: result.messageId,
-      accepted: result.accepted,
-      rejected: result.rejected,
-      response: result.response
+      replyTo: contactData.email
     });
-    return { success: true, messageId: result.messageId };
+
+    console.log('✅ Email sent successfully via Resend:', data.id || 'No ID returned');
+    console.log('📊 Email details:', {
+      id: data.id,
+      to: data.to,
+      from: data.from
+    });
+    return { success: true, messageId: data.id };
   } catch (error) {
-    console.error('❌ Error sending email:');
+    console.error('❌ Error sending email via Resend:');
     console.error('Error name:', error.name);
     console.error('Error message:', error.message);
-    console.error('Error code:', error.code);
+    console.error('Error statusCode:', error.statusCode);
     console.error('Full error object:', error);
 
-    // Check for common Gmail SMTP errors
-    if (error.code === 'EAUTH') {
-      console.error('🔐 AUTHENTICATION ERROR: Check your Gmail credentials');
-      console.error('- Verify EMAIL_USER is correct');
-      console.error('- Verify EMAIL_PASS is your Gmail app password (not regular password)');
-      console.error('- Make sure 2FA is enabled on Gmail account');
-    } else if (error.code === 'ENOTFOUND') {
-      console.error('🌐 NETWORK ERROR: Cannot reach Gmail SMTP servers');
-    } else if (error.code === 'ECONNREFUSED') {
-      console.error('🚫 CONNECTION REFUSED: Gmail SMTP port may be blocked');
-    } else if (error.code === 'ETIMEDOUT') {
-      console.error('⏰ TIMEOUT ERROR: Connection to Gmail SMTP timed out');
+    // Check for common Resend errors
+    if (error.statusCode === 401) {
+      console.error('🔐 AUTHENTICATION ERROR: Check your RESEND_API_KEY');
+      console.error('- Verify the API key is correct');
+      console.error('- Make sure it starts with "re_"');
+    } else if (error.statusCode === 403) {
+      console.error('🚫 FORBIDDEN ERROR: Domain not verified');
+      console.error('- Verify your sending domain in Resend dashboard');
+      console.error('- Use a verified domain for the "from" address');
+    } else if (error.statusCode === 422) {
+      console.error('📝 VALIDATION ERROR: Check email format and required fields');
     }
 
     throw new Error(`Failed to send email: ${error.message}`);

@@ -6,7 +6,7 @@ import { sendContactEmail } from './src/services/emailService.js';
 dotenv.config();
 
 console.log('🚀 Starting Email Test...');
-console.log('📧 Testing Gmail SMTP Configuration');
+console.log('📧 Testing Resend API Configuration');
 console.log('=====================================');
 
 // Test data
@@ -25,8 +25,7 @@ console.log('- Message:', testData.message.substring(0, 50) + '...');
 console.log('');
 
 console.log('🔧 Environment Variables:');
-console.log('- EMAIL_USER:', process.env.EMAIL_USER ? '✅ Set' : '❌ Not set');
-console.log('- EMAIL_PASS:', process.env.EMAIL_PASS ? '✅ Set (length: ' + process.env.EMAIL_PASS.length + ')' : '❌ Not set');
+console.log('- RESEND_API_KEY:', process.env.RESEND_API_KEY ? '✅ Set (starts with: ' + process.env.RESEND_API_KEY.substring(0, 3) + '...)' : '❌ Not set');
 console.log('- CONTACT_EMAIL:', process.env.CONTACT_EMAIL || 'prachiraval2608@gmail.com');
 console.log('');
 
