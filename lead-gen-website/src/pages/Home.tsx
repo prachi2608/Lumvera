@@ -49,23 +49,149 @@ export default function Home() {
       </Container>
 
       {/* Value Highlights - Mobile Optimized */}
-      <Container size="lg" py={{ base: 40, md: 80 }}>
-        <Title order={2} style={{ textAlign: 'center', marginBottom: '2rem' }}>Value Highlights</Title>
-        <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="lg">
-          <Card shadow="sm" p="lg" radius="md" withBorder>
-            <ThemeIcon variant="light" size={40} radius={40}><FiZap size={24} /></ThemeIcon>
-            <Title order={3} mt="md" size="h4">Lightning Fast</Title>
-            <Text c="dimmed" mt="sm" size="sm">Built with an optimized architecture for speed and performance.</Text>
+      <Container size="lg" py={{ base: 60, md: 80 }} px={{ base: 20, md: undefined }}>
+        <Title
+          order={2}
+          style={{
+            textAlign: 'center',
+            marginBottom: '3rem',
+            fontSize: 'clamp(1.8rem, 6vw, 2.5rem)'
+          }}
+        >
+          Value Highlights
+        </Title>
+        <SimpleGrid
+          cols={{ base: 1, sm: 2, md: 3 }}
+          spacing="xl"
+          style={{ alignItems: 'stretch' }}
+        >
+          <Card
+            shadow="sm"
+            padding="xl"
+            radius="lg"
+            withBorder
+            style={{
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              textAlign: 'center'
+            }}
+          >
+            <div style={{ marginBottom: '1rem' }}>
+              <ThemeIcon
+                variant="light"
+                size={50}
+                radius={50}
+                style={{ margin: '0 auto' }}
+              >
+                <FiZap size={24} />
+              </ThemeIcon>
+            </div>
+            <Title
+              order={3}
+              size="h4"
+              style={{
+                marginBottom: '0.75rem'
+              }}
+            >
+              Lightning Fast
+            </Title>
+            <Text
+              c="dimmed"
+              size="sm"
+              style={{
+                lineHeight: 1.6,
+                flex: 1
+              }}
+            >
+              Built with an optimized architecture for speed and performance across all devices.
+            </Text>
           </Card>
-          <Card shadow="sm" p="lg" radius="md" withBorder>
-            <ThemeIcon variant="light" size={40} radius={40}><FiHeart size={24} /></ThemeIcon>
-            <Title order={3} mt="md" size="h4">Growth Focused</Title>
-            <Text c="dimmed" mt="sm" size="sm">Designed specifically for businesses that want to scale and succeed.</Text>
+
+          <Card
+            shadow="sm"
+            padding="xl"
+            radius="lg"
+            withBorder
+            style={{
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              textAlign: 'center'
+            }}
+          >
+            <div style={{ marginBottom: '1rem' }}>
+              <ThemeIcon
+                variant="light"
+                size={50}
+                radius={50}
+                style={{ margin: '0 auto' }}
+              >
+                <FiHeart size={24} />
+              </ThemeIcon>
+            </div>
+            <Title
+              order={3}
+              size="h4"
+              style={{
+                marginBottom: '0.75rem'
+              }}
+            >
+              Growth Focused
+            </Title>
+            <Text
+              c="dimmed"
+              size="sm"
+              style={{
+                lineHeight: 1.6,
+                flex: 1
+              }}
+            >
+              Designed specifically for businesses that want to scale, grow, and dominate their markets.
+            </Text>
           </Card>
-          <Card shadow="sm" p="lg" radius="md" withBorder>
-            <ThemeIcon variant="light" size={40} radius={40}><FiShield size={24} /></ThemeIcon>
-            <Title order={3} mt="md" size="h4">Secure & Reliable</Title>
-            <Text c="dimmed" mt="sm" size="sm">Enterprise-grade workflows to keep your data safe.</Text>
+
+          <Card
+            shadow="sm"
+            padding="xl"
+            radius="lg"
+            withBorder
+            style={{
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              textAlign: 'center'
+            }}
+          >
+            <div style={{ marginBottom: '1rem' }}>
+              <ThemeIcon
+                variant="light"
+                size={50}
+                radius={50}
+                style={{ margin: '0 auto' }}
+              >
+                <FiShield size={24} />
+              </ThemeIcon>
+            </div>
+            <Title
+              order={3}
+              size="h4"
+              style={{
+                marginBottom: '0.75rem'
+              }}
+            >
+              Secure & Reliable
+            </Title>
+            <Text
+              c="dimmed"
+              size="sm"
+              style={{
+                lineHeight: 1.6,
+                flex: 1
+              }}
+            >
+              Enterprise-grade security and workflows to keep your valuable business data completely safe.
+            </Text>
           </Card>
         </SimpleGrid>
       </Container>
