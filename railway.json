@@ -1,10 +1,10 @@
 {
   "build": {
     "builder": "NIXPACKS",
-    "buildCommand": "cd lead-gen-website && npm run build"
+    "buildCommand": "cd cloud-nine-bakery && npm run build"
   },
   "deploy": {
-    "startCommand": "cd lead-gen-website && node server.js",
+    "startCommand": "cd cloud-nine-bakery && node server.js",
     "healthcheckPath": "/",
     "healthcheckTimeout": 300,
     "restartPolicyType": "ON_FAILURE",
