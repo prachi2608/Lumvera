@@ -11,7 +11,7 @@ export default function Solutions() {
         </Text>
       </Container>
 
-      <Container size="sm" pb={80}>
+      <Container size="sm" pb={{ base: 80, md: 100 }}>
         <Tabs defaultValue="startups">
           <Tabs.List grow>
             <Tabs.Tab value="startups" leftSection={<FiTarget size={16} />}>

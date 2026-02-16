@@ -57,7 +57,7 @@ export default function Products() {
         </Text>
       </Container>
 
-      <Container size="lg" pb={80}>
+      <Container size="lg" pb={{ base: 80, md: 100 }}>
         <SimpleGrid cols={3} spacing="xl">
           {items}
         </SimpleGrid>

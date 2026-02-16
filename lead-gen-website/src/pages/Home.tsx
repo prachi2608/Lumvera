@@ -197,7 +197,7 @@ export default function Home() {
       </Container>
 
       {/* Final CTA - Mobile Optimized */}
-      <Container size="lg" py={{ base: 40, md: 80 }} style={{ textAlign: 'center' }}>
+      <Container size="lg" py={{ base: 40, md: 80 }} pb={{ base: 60, md: 100 }} style={{ textAlign: 'center' }}>
         <Title order={2} style={{ marginBottom: '1.5rem', fontSize: 'clamp(1.8rem, 5vw, 2.5rem)' }}>
           Ready to Build Something You're Proud Of?
         </Title>

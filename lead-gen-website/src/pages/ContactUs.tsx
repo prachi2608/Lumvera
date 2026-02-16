@@ -78,7 +78,7 @@ export default function ContactUs() {
         </Text>
       </Container>
 
-      <Container size="lg" pb={80}>
+      <Container size="lg" pb={{ base: 80, md: 100 }}>
         <SimpleGrid cols={2} spacing="xl">
           <div>
             <Card shadow="sm" p="lg" radius="md" withBorder mb="xl">

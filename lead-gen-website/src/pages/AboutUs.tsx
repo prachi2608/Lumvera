@@ -42,7 +42,7 @@ export default function AboutUs() {
         </Timeline>
       </Container>
 
-      <Container size="lg" py={80}>
+      <Container size="lg" py={80} pb={{ base: 80, md: 100 }}>
         <Title order={2} style={{ textAlign: 'center', marginBottom: '3rem' }}>Our Team</Title>
         <SimpleGrid cols={3} spacing="xl">
           {teamCards}
