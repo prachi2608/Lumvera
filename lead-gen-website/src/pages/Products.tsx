@@ -4,8 +4,8 @@ import { FiBox, FiBriefcase, FiZap, FiArrowRight } from 'react-icons/fi';
 const products = [
   {
     icon: FiBox,
-    title: 'Product A',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    title: 'Outbound Lead Generation',
+    description: 'We build and manage your outbound engine - from targeting to booked meetings..',
   },
   {
     icon: FiBriefcase,
