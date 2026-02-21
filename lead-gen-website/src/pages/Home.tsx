@@ -25,7 +25,7 @@ export default function Home() {
           mb={40}
           style={{ maxWidth: '100%', lineHeight: 1.6 }}
         >
-          The modern platform that helps you turn your ideas into reality with powerful tools and seamless collaboration.
+          Clarity in strategy. Discipline in execution. Results that scale.
         </Text>
         <Group justify="center" gap="md">
           <Button component={Link} to="/contact" size="lg" style={{ width: '100%', '@media (min-width: 640px)': { width: 'auto' } }}>
