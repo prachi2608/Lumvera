@@ -17,7 +17,7 @@ export default function Home() {
             lineHeight: 1.2
           }}
         >
-          Lumvera — Where bright ideas rise.
+       EmberLane Consulting- Drivedn By Ethics, Focused On Results
         </Title>
         <Text
           size="lg"
