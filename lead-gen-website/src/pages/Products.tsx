@@ -10,7 +10,7 @@ const products = [
   {
     icon: FiBriefcase,
     title: 'End-to-End Sales Setup',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    description: 'We build your complete sales foundation — from strategy to systems — so you can scale with clarity.',
   },
   {
     icon: FiZap,
