@@ -1,38 +1,7 @@
 import { Container, Title, Text, SimpleGrid, Card, ThemeIcon, Button } from '@mantine/core';
-import { FiBox, FiBriefcase, FiZap, FiArrowRight } from 'react-icons/fi';
-
-const products = [
-  {
-    icon: FiBox,
-    title: 'Outbound Lead Generation',
-    description: 'We build and manage your outbound engine - from targeting to booked meetings..',
-  },
-  {
-    icon: FiBriefcase,
-    title: 'Product B',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  },
-  {
-    icon: FiZap,
-    title: 'Product C',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  },
-  {
-    icon: FiBox,
-    title: 'Product D',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  },
-  {
-    icon: FiBriefcase,
-    title: 'Product E',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  },
-  {
-    icon: FiZap,
-    title: 'Product F',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  },
-];
+import { FiArrowRight } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
+import { products } from '../data/products';
 
 export default function Products() {
   const items = products.map((product) => (
@@ -42,7 +11,7 @@ export default function Products() {
       </ThemeIcon>
       <Title order={3} mt="md">{product.title}</Title>
       <Text c="dimmed" mt="sm">{product.description}</Text>
-      <Button rightSection={<FiArrowRight size={14} />} variant="light" fullWidth mt="md" radius="md">
+      <Button component={Link} to={`/products/${product.id}`} rightSection={<FiArrowRight size={14} />} variant="light" fullWidth mt="md" radius="md">
         Learn More
       </Button>
     </Card>
@@ -58,7 +27,7 @@ export default function Products() {
       </Container>
 
       <Container size="lg" pb={{ base: 80, md: 100 }}>
-        <SimpleGrid cols={3} spacing="xl">
+        <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="xl">
           {items}
         </SimpleGrid>
       </Container>

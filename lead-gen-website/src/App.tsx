@@ -7,6 +7,7 @@ import { useState } from 'react';
 import Home from './pages/Home';
 import Solutions from './pages/Solutions';
 import Products from './pages/Products';
+import ProductDetail from './pages/ProductDetail';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
 
@@ -100,6 +101,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/products/:productId" element={<ProductDetail />} />
           <Route path="/solutions" element={<Solutions />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<ContactUs />} />
