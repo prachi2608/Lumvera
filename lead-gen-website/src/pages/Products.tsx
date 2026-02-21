@@ -9,7 +9,7 @@ const products = [
   },
   {
     icon: FiBriefcase,
-    title: 'Product B',
+    title: 'End-to-End Sales Setup',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   },
   {
