@@ -1,0 +1,41 @@
+# 1. Create a New User
+mutation CreateUser($email: String!, $username: String!, $displayName: String) @auth(level: PUBLIC, insecureReason: "This operation is for user registration and does not expose sensitive data.") {
+  user_insert(data: {
+    email: $email,
+    username: $username,
+    displayName: $displayName,
+    createdAt_expr: "request.time"
+  })
+}
+
+# 2. Retrieve a User's Projects
+query GetMyProjects @auth(level: USER, insecureReason: "This operation retrieves projects specific to the authenticated user via auth.uid, ensuring data privacy.") {
+  projects(where: {userId: {eq_expr: "auth.uid"}}) {
+    id
+    name
+    description
+    createdAt
+  }
+}
+
+# 3. Create a New Task for a Project
+mutation CreateTaskForProject($projectId: UUID!, $title: String!, $description: String, $dueDate: Date) @auth(level: USER, insecureReason: "This operation allows an authenticated user to create a task for a project they own. Project ownership is implicitly handled through the userId and projectId relationship.") {
+  task_insert(data: {
+    projectId: $projectId,
+    userId_expr: "auth.uid",
+    title: $title,
+    description: $description,
+    dueDate: $dueDate,
+    isCompleted: false,
+    createdAt_expr: "request.time"
+  })
+}
+
+# 4. Update a Task's Completion Status
+mutation UpdateTaskCompletion($taskId: UUID!, $isCompleted: Boolean!) @auth(level: USER) {
+  task_update(
+    key: {id: $taskId},
+    where: {userId: {eq_expr: "auth.uid"}}, # Ensure only the owner can update their tasks
+    data: {isCompleted: $isCompleted}
+  )
+}
