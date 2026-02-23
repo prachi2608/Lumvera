@@ -25,10 +25,10 @@ export const products: Product[] = [
     ]
   },
   {
-    id: 'product-b',
+    id: 'End-to-End Sales Setup',
     icon: FiBriefcase,
-    title: 'Product B',
-    description: 'Advanced analytics and insights for data-driven decision making.',
+    title: 'End-to-End Sales Setup',
+    description: 'We build your complete sales foundation — from strategy to systems — so you can scale with clarity.',
     detailedDescription: 'Product B provides comprehensive analytics solutions that transform your raw data into actionable insights. Our advanced algorithms help you understand customer behavior, optimize processes, and make informed strategic decisions.',
     features: [
       'Real-time data visualization',
