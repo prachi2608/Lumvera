@@ -4,6 +4,8 @@ name: Deploy to Firebase Hosting
 
 # Another dummy comment
 
+# Final test comment
+
 on:
   push:
     branches:
