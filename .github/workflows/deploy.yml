@@ -18,6 +18,7 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
+        working-directory: lead-gen-website
 
       - name: Install dependencies
         run: cd lead-gen-website && npm ci
