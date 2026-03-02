@@ -32,5 +32,14 @@ jobs:
       - name: Build project
         run: cd lead-gen-website && npm run build
 
+      - name: Authenticate to Firebase
+        run: |
+          cat > $HOME/service-account-key.json << EOF
+          ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
+          EOF
+          export GOOGLE_APPLICATION_CREDENTIALS=$HOME/service-account-key.json
+
       - name: Deploy to Firebase
-        run: cd lead-gen-website && npx firebase-tools deploy --only hosting --project lumvera-c231c --token $FIREBASE_TOKEN
+        run: |
+          export GOOGLE_APPLICATION_CREDENTIALS=$HOME/service-account-key.json
+          cd lead-gen-website && npx firebase-tools deploy --only hosting --project lumvera-c231c
