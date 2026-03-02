@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
-        working-directory: lead-gen-website
+          cache-dependency-path: 'lead-gen-website/package-lock.json'
 
       - name: Install dependencies
         run: cd lead-gen-website && npm ci
