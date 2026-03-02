@@ -18,20 +18,12 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
-        working-directory: lead-gen-website
 
       - name: Install dependencies
-        run: npm ci
-        working-directory: lead-gen-website
+        run: cd lead-gen-website && npm ci
 
       - name: Build project
-        run: npm run build
-        working-directory: lead-gen-website
+        run: cd lead-gen-website && npm run build
 
       - name: Deploy to Firebase
-        uses: w9jds/firebase-action@v13.0.1
-        with:
-          args: deploy --only hosting --project lumvera-c231c
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        working-directory: lead-gen-website
+        run: cd lead-gen-website && npx firebase-tools deploy --only hosting --project lumvera-c231c --token $FIREBASE_TOKEN
