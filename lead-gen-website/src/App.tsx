@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Solutions from './pages/Solutions';
 import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
+import LeadCalculator from './pages/LeadCalculator';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
 
@@ -17,6 +18,7 @@ export default function App() {
   
   const links = [
     { label: 'Home', link: '/' },
+    { label: 'Lead Calculator', link: '/lead-calculator' },
     { label: 'Products', link: '/products' },
     { label: 'Solutions', link: '/solutions' },
     { label: 'About Us', link: '/about' },
@@ -102,6 +104,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/:productId" element={<ProductDetail />} />
+          <Route path="/lead-calculator" element={<LeadCalculator />} />
           <Route path="/solutions" element={<Solutions />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<ContactUs />} />

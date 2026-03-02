@@ -17,7 +17,7 @@ export default function Home() {
             lineHeight: 1.2
           }}
         >
-       EmberLane Consulting- Drivedn By Ethics, Focused On Results
+          We Build and Manage Your Outbound Engine
         </Title>
         <Text
           size="lg"
@@ -25,7 +25,7 @@ export default function Home() {
           mb={40}
           style={{ maxWidth: '100%', lineHeight: 1.6 }}
         >
-          Clarity in strategy. Discipline in execution. Results that scale.
+          From targeting to booked meetings. Drive growth with our expert lead generation services.
         </Text>
         <Group justify="center" gap="md">
           <Button component={Link} to="/contact" size="lg" style={{ width: '100%', '@media (min-width: 640px)': { width: 'auto' } }}>
