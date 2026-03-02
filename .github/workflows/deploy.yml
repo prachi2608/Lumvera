@@ -2,6 +2,8 @@ name: Deploy to Firebase Hosting
 
 # Dummy comment to trigger deployment test
 
+# Another dummy comment
+
 on:
   push:
     branches:
