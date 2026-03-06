@@ -27,21 +27,21 @@ const downloadableResources = [
     title: 'Lead Generation Checklist',
     description: 'A simple checklist to ensure your lead generation campaigns are complete.',
     type: 'Checklist',
-    filePath: '/lead-generation-checklist.txt',
+    filePath: '/lead-generation-checklist.html',
     icon: FiFileText
   },
   {
     title: 'Email Template Pack',
     description: 'Basic email templates for initial outreach and follow-ups.',
     type: 'Template',
-    filePath: '/email-template-pack.txt',
+    filePath: '/email-template-pack.html',
     icon: FiMail
   },
   {
     title: 'Lead Qualification Framework',
     description: 'Simple framework to qualify leads and prioritize follow-ups.',
     type: 'Framework',
-    filePath: '/lead-qualification-framework.txt',
+    filePath: '/lead-qualification-framework.html',
     icon: FiTarget
   }
 ];
