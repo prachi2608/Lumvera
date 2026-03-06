@@ -1,4 +1,4 @@
-import { Container, Title, Text, Card, Group, Badge, Stack, Button, List, ThemeIcon, Alert, Blockquote } from '@mantine/core';
+import { Container, Title, Text, Card, Group, Badge, Stack, Blockquote, Avatar } from '@mantine/core';
 import { FiTrendingUp, FiUsers, FiDollarSign } from 'react-icons/fi';
 
 const successStories = [
