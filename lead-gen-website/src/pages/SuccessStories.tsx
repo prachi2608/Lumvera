@@ -1,4 +1,4 @@
-import { Container, Title, Text, Card, Group, Badge, Stack, Quote, Avatar } from '@mantine/core';
+import { Container, Title, Text, Card, Group, Badge, Stack, Button, List, ThemeIcon, Alert, Blockquote } from '@mantine/core';
 import { FiTrendingUp, FiUsers, FiDollarSign } from 'react-icons/fi';
 
 const successStories = [
@@ -121,9 +121,9 @@ export default function SuccessStories() {
                 </div>
 
                 <Card withBorder p="lg" bg="gray.0">
-                  <Quote cite={`- ${story.testimonial.author}, ${story.testimonial.position}`}>
+                  <Blockquote cite={`- ${story.testimonial.author}, ${story.testimonial.position}`}>
                     "{story.testimonial.quote}"
-                  </Quote>
+                  </Blockquote>
                   <Group mt="md">
                     <Avatar size="md" radius="xl">{story.testimonial.avatar}</Avatar>
                     <div>

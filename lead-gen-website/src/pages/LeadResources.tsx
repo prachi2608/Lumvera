@@ -1,5 +1,5 @@
-import { Container, Title, Text, Card, Group, Badge, Stack, Button, List, ThemeIcon, Alert } from '@mantine/core';
-import { FiDownload, FiBookOpen, FiTrendingUp, FiTarget, FiMail, FiUsers, FiFileText } from 'react-icons/fi';
+import { Container, Title, Text, Card, Group, Badge, Stack, Button, ThemeIcon, Alert } from '@mantine/core';
+import { FiDownload, FiBookOpen, FiTarget, FiMail, FiUsers, FiFileText } from 'react-icons/fi';
 
 const guides = [
   {
@@ -27,27 +27,24 @@ const downloadableResources = [
     title: 'Lead Generation Checklist',
     description: 'A simple checklist to ensure your lead generation campaigns are complete.',
     type: 'Checklist',
-    downloadUrl: '#', // Placeholder for actual download
     icon: FiFileText
   },
   {
     title: 'Email Template Pack',
     description: 'Basic email templates for initial outreach and follow-ups.',
     type: 'Template',
-    downloadUrl: '#', // Placeholder for actual download
     icon: FiMail
   },
   {
     title: 'Lead Qualification Framework',
     description: 'Simple framework to qualify leads and prioritize follow-ups.',
     type: 'Framework',
-    downloadUrl: '#', // Placeholder for actual download
     icon: FiTarget
   }
 ];
 
 export default function LeadResources() {
-  const handleDownload = (url: string, title: string) => {
+  const handleDownload = (title: string) => {
     // For demo purposes, show alert. In production, this would link to actual files
     alert(`Download for "${title}" would start here. Contact us for the actual resource.`);
     // window.open(url, '_blank'); // Uncomment when actual files are available
@@ -123,7 +120,7 @@ export default function LeadResources() {
                   <Button
                     color="green"
                     rightSection={<FiDownload size={16} />}
-                    onClick={() => handleDownload(resource.downloadUrl, resource.title)}
+                    onClick={() => handleDownload(resource.title)}
                   >
                     Download
                   </Button>
