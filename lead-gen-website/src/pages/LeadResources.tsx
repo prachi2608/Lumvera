@@ -6,19 +6,22 @@ const guides = [
     title: 'Introduction to Lead Generation',
     description: 'Basic overview of lead generation concepts and why it matters for business growth.',
     type: 'Guide',
-    icon: FiBookOpen
+    icon: FiBookOpen,
+    filePath: '/intro-to-lead-generation.html'
   },
   {
     title: 'Email Marketing Basics',
     description: 'Essential principles of email marketing for lead nurturing.',
     type: 'Guide',
-    icon: FiMail
+    icon: FiMail,
+    filePath: '/email-marketing-basics.html'
   },
   {
     title: 'LinkedIn Outreach Fundamentals',
     description: 'Key strategies for connecting with prospects on LinkedIn.',
     type: 'Guide',
-    icon: FiUsers
+    icon: FiUsers,
+    filePath: '/linkedin-outreach-fundamentals.html'
   }
 ];
 
@@ -89,7 +92,7 @@ export default function LeadResources() {
                     <Badge variant="light" color="blue">{guide.type}</Badge>
                   </Group>
                   <Text mb="lg">{guide.description}</Text>
-                  <Button variant="light" rightSection={<FiBookOpen size={16} />}>
+                  <Button variant="light" rightSection={<FiBookOpen size={16} />} onClick={() => handleDownload(guide.filePath)}>
                     Read Guide
                   </Button>
                 </div>
