@@ -1,4 +1,4 @@
-import { Container, Title, Text, Timeline, Avatar, Card } from '@mantine/core';
+import { Container, Title, Text, Timeline, Card } from '@mantine/core';
 
 const timeline = [
   { year: '2020', event: 'Lumvera was founded with a mission to revolutionize lead generation.' },
@@ -31,7 +31,6 @@ export default function AboutUs() {
       <Container size="lg" py={80} pb={{ base: 80, md: 100 }}>
         <Title order={2} style={{ textAlign: 'center', marginBottom: '3rem' }}>Our Founder</Title>
         <Card shadow="sm" p="lg" radius="md" withBorder style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto' }}>
-          <Avatar src="https://i.pravatar.cc/150?u=dwijal" size={120} radius={120} mx="auto" />
           <Text ta="center" fz="lg" fw={500} mt="md">Dwijal Trivedi</Text>
           <Text ta="center" c="dimmed" fz="sm">Founder</Text>
           <Text ta="center" mt="md">
