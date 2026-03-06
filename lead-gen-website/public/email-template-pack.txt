@@ -1,0 +1,33 @@
+Email Template Pack
+
+Basic email templates for different stages of lead generation.
+
+Initial Outreach Template:
+Subject: [Your Company] Can Help You [Solve Problem]
+
+Dear [Prospect Name],
+
+I noticed [something specific about their company/role] and thought you might be interested in [brief value proposition].
+
+[Brief introduction and value statement]
+
+Would you be open to a quick call to discuss how we can help?
+
+Best regards,
+[Your Name]
+
+Follow-up Template:
+Subject: Following up on my previous email
+
+Hi [Prospect Name],
+
+I wanted to follow up on my previous email about [topic].
+
+[Additional value or question]
+
+Looking forward to your thoughts.
+
+Best,
+[Your Name]
+
+For customized email templates and sequences, contact Lumvera for professional assistance!

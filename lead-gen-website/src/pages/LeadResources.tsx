@@ -27,27 +27,28 @@ const downloadableResources = [
     title: 'Lead Generation Checklist',
     description: 'A simple checklist to ensure your lead generation campaigns are complete.',
     type: 'Checklist',
+    filePath: '/lead-generation-checklist.txt',
     icon: FiFileText
   },
   {
     title: 'Email Template Pack',
     description: 'Basic email templates for initial outreach and follow-ups.',
     type: 'Template',
+    filePath: '/email-template-pack.txt',
     icon: FiMail
   },
   {
     title: 'Lead Qualification Framework',
     description: 'Simple framework to qualify leads and prioritize follow-ups.',
     type: 'Framework',
+    filePath: '/lead-qualification-framework.txt',
     icon: FiTarget
   }
 ];
 
 export default function LeadResources() {
-  const handleDownload = (title: string) => {
-    // For demo purposes, show alert. In production, this would link to actual files
-    alert(`Download for "${title}" would start here. Contact us for the actual resource.`);
-    // window.open(url, '_blank'); // Uncomment when actual files are available
+  const handleDownload = (filePath: string) => {
+    window.open(filePath, '_blank');
   };
 
   return (
@@ -120,7 +121,7 @@ export default function LeadResources() {
                   <Button
                     color="green"
                     rightSection={<FiDownload size={16} />}
-                    onClick={() => handleDownload(resource.title)}
+                    onClick={() => handleDownload(resource.filePath)}
                   >
                     Download
                   </Button>

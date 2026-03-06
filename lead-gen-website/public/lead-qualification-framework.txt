@@ -1,0 +1,23 @@
+Lead Qualification Framework
+
+A simple framework to qualify leads and prioritize your follow-up efforts.
+
+Basic Qualification Criteria:
+- Budget: Does the prospect have the resources to purchase?
+- Authority: Is this person the decision-maker?
+- Need: Does their company have the problem you solve?
+- Timeline: When are they planning to make a decision?
+
+Lead Scoring Scale:
+1-3 points: Low priority
+4-6 points: Medium priority
+7-9 points: High priority
+10+ points: Immediate follow-up
+
+Qualification Questions:
+- What is your current process for [relevant problem]?
+- What are your biggest challenges with [area]?
+- What is your timeline for implementing a solution?
+- Who else is involved in the decision-making process?
+
+For advanced qualification frameworks and CRM integration, contact Lumvera!
