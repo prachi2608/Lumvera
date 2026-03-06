@@ -1,65 +1,58 @@
-import { Container, Title, Text, Card, Group, Badge, Stack, Button, List, ThemeIcon } from '@mantine/core';
-import { FiDownload, FiBookOpen, FiTrendingUp, FiTarget, FiMail, FiUsers } from 'react-icons/fi';
+import { Container, Title, Text, Card, Group, Badge, Stack, Button, List, ThemeIcon, Alert } from '@mantine/core';
+import { FiDownload, FiBookOpen, FiTrendingUp, FiTarget, FiMail, FiUsers, FiFileText } from 'react-icons/fi';
 
-const resources = [
+const guides = [
   {
-    title: 'Demand Generation vs Lead Generation: Understanding the Difference',
-    description: 'Learn the key differences between demand generation and lead generation strategies. Discover how to create consistent value across all buyer touchpoints.',
+    title: 'Introduction to Lead Generation',
+    description: 'Basic overview of lead generation concepts and why it matters for business growth.',
     type: 'Guide',
-    icon: FiBookOpen,
-    features: [
-      'Complete buying group identification',
-      'AI-driven engagement strategies',
-      'Intent signal analysis'
-    ]
+    icon: FiBookOpen
   },
   {
-    title: 'B2B Lead Generation Best Practices',
-    description: 'Master the art of B2B lead generation with proven strategies and tactics that drive qualified prospects to your sales team.',
+    title: 'Email Marketing Basics',
+    description: 'Essential principles of email marketing for lead nurturing.',
     type: 'Guide',
-    icon: FiTrendingUp,
-    features: [
-      'Multi-channel outreach techniques',
-      'Account-based marketing approaches',
-      'Lead qualification frameworks'
-    ]
+    icon: FiMail
   },
   {
-    title: 'Lead Generation Templates & Checklists',
-    description: 'Download ready-to-use templates and checklists to streamline your lead generation campaigns and ensure consistent execution.',
+    title: 'LinkedIn Outreach Fundamentals',
+    description: 'Key strategies for connecting with prospects on LinkedIn.',
+    type: 'Guide',
+    icon: FiUsers
+  }
+];
+
+const downloadableResources = [
+  {
+    title: 'Lead Generation Checklist',
+    description: 'A simple checklist to ensure your lead generation campaigns are complete.',
+    type: 'Checklist',
+    downloadUrl: '#', // Placeholder for actual download
+    icon: FiFileText
+  },
+  {
+    title: 'Email Template Pack',
+    description: 'Basic email templates for initial outreach and follow-ups.',
     type: 'Template',
-    icon: FiDownload,
-    features: [
-      'Campaign planning templates',
-      'Lead scoring checklists',
-      'Outreach sequence frameworks'
-    ]
+    downloadUrl: '#', // Placeholder for actual download
+    icon: FiMail
   },
   {
-    title: 'Email Outreach Strategies for B2B',
-    description: 'Craft compelling email campaigns that resonate with decision-makers and drive engagement in competitive B2B markets.',
-    type: 'Guide',
-    icon: FiMail,
-    features: [
-      'Personalization techniques',
-      'Subject line optimization',
-      'Follow-up sequence strategies'
-    ]
-  },
-  {
-    title: 'LinkedIn Lead Generation Tactics',
-    description: 'Leverage LinkedIn\'s professional network to identify and engage potential B2B clients with targeted outreach strategies.',
-    type: 'Guide',
-    icon: FiUsers,
-    features: [
-      'Profile research techniques',
-      'Connection strategies',
-      'Content engagement tactics'
-    ]
+    title: 'Lead Qualification Framework',
+    description: 'Simple framework to qualify leads and prioritize follow-ups.',
+    type: 'Framework',
+    downloadUrl: '#', // Placeholder for actual download
+    icon: FiTarget
   }
 ];
 
 export default function LeadResources() {
+  const handleDownload = (url: string, title: string) => {
+    // For demo purposes, show alert. In production, this would link to actual files
+    alert(`Download for "${title}" would start here. Contact us for the actual resource.`);
+    // window.open(url, '_blank'); // Uncomment when actual files are available
+  };
+
   return (
     <Container size="lg" py={80}>
       <Stack gap="xl">
@@ -68,37 +61,71 @@ export default function LeadResources() {
             Lead Generation Resources
           </Title>
           <Text size="xl" c="dimmed" mb="lg">
-            Free guides, templates, and strategies to supercharge your lead generation efforts
+            Free basic guides and downloadable resources to get started with lead generation
           </Text>
         </div>
 
+        <Alert color="blue" mb="lg">
+          <Text>
+            <strong>Note:</strong> Our guides provide basic overviews to help you get started. For comprehensive strategies and implementation support, contact our team for personalized assistance.
+          </Text>
+        </Alert>
+
         <div>
-          <Title order={2} mb="md">Featured Resources</Title>
+          <Title order={2} mb="md">Free Guides</Title>
           <Text size="lg" mb="xl">
-            Access our comprehensive collection of lead generation resources designed to help you attract, engage, and convert more qualified prospects.
+            Access our basic guides covering fundamental concepts in lead generation.
           </Text>
         </div>
 
         <Stack gap="lg">
-          {resources.map((resource, index) => (
+          {guides.map((guide, index) => (
             <Card key={index} shadow="sm" p="xl" radius="md" withBorder>
               <Group align="flex-start" gap="lg">
                 <ThemeIcon size={60} radius={60} variant="light" color="blue">
+                  <guide.icon size={30} />
+                </ThemeIcon>
+                <div style={{ flex: 1 }}>
+                  <Group mb="sm">
+                    <Title order={3}>{guide.title}</Title>
+                    <Badge variant="light" color="blue">{guide.type}</Badge>
+                  </Group>
+                  <Text mb="lg">{guide.description}</Text>
+                  <Button variant="light" rightSection={<FiBookOpen size={16} />}>
+                    Read Guide
+                  </Button>
+                </div>
+              </Group>
+            </Card>
+          ))}
+        </Stack>
+
+        <div>
+          <Title order={2} mb="md">Downloadable Resources</Title>
+          <Text size="lg" mb="xl">
+            Download practical tools and templates to support your lead generation efforts.
+          </Text>
+        </div>
+
+        <Stack gap="lg">
+          {downloadableResources.map((resource, index) => (
+            <Card key={index} shadow="sm" p="xl" radius="md" withBorder>
+              <Group align="flex-start" gap="lg">
+                <ThemeIcon size={60} radius={60} variant="light" color="green">
                   <resource.icon size={30} />
                 </ThemeIcon>
                 <div style={{ flex: 1 }}>
                   <Group mb="sm">
                     <Title order={3}>{resource.title}</Title>
-                    <Badge variant="light" color="blue">{resource.type}</Badge>
+                    <Badge variant="light" color="green">{resource.type}</Badge>
                   </Group>
-                  <Text mb="md">{resource.description}</Text>
-                  <List size="sm" mb="lg">
-                    {resource.features.map((feature, idx) => (
-                      <List.Item key={idx}>{feature}</List.Item>
-                    ))}
-                  </List>
-                  <Button rightSection={<FiDownload size={16} />}>
-                    Download Resource
+                  <Text mb="lg">{resource.description}</Text>
+                  <Button
+                    color="green"
+                    rightSection={<FiDownload size={16} />}
+                    onClick={() => handleDownload(resource.downloadUrl, resource.title)}
+                  >
+                    Download
                   </Button>
                 </div>
               </Group>
@@ -111,15 +138,15 @@ export default function LeadResources() {
             <ThemeIcon size={60} radius={60} variant="light" color="blue">
               <FiTarget size={30} />
             </ThemeIcon>
-            <Title order={2}>Need Custom Lead Generation Strategies?</Title>
+            <Title order={2}>Need Advanced Strategies?</Title>
             <Text size="lg" ta="center">
-              Our expert team can create personalized lead generation campaigns tailored to your industry and target audience.
+              Our expert team provides comprehensive lead generation strategies and implementation support.
             </Text>
             <Text size="lg" ta="center" fw={500}>
-              Contact us to discuss your specific lead generation needs and goals.
+              Contact us to access advanced tools and personalized guidance.
             </Text>
             <Button size="lg" component="a" href="/contact">
-              Get Started Today
+              Get Expert Help
             </Button>
           </Stack>
         </Card>
