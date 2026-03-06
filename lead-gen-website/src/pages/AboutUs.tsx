@@ -1,27 +1,13 @@
-import { Container, Title, Text, Timeline, SimpleGrid, Avatar, Card } from '@mantine/core';
+import { Container, Title, Text, Timeline, Avatar, Card } from '@mantine/core';
 
 const timeline = [
-  { year: '2020', event: 'Windsurf was founded with a mission to revolutionize lead generation.' },
-  { year: '2021', event: 'Launched our flagship product, the Windsurf Platform.' },
+  { year: '2020', event: 'Lumvera was founded with a mission to revolutionize lead generation.' },
+  { year: '2021', event: 'Launched our flagship product, the Lumvera Platform.' },
   { year: '2022', event: 'Reached 1,000 customers and expanded our team.' },
   { year: '2023', event: 'Introduced AI-powered features to enhance lead qualification.' },
 ];
 
-const team = [
-  { name: 'John Doe', role: 'CEO', image: 'https://i.pravatar.cc/150?u=a042581f4e29026704d' },
-  { name: 'Jane Smith', role: 'CTO', image: 'https://i.pravatar.cc/150?u=a042581f4e29026705d' },
-  { name: 'Peter Jones', role: 'COO', image: 'https://i.pravatar.cc/150?u=a042581f4e29026706d' },
-];
-
 export default function AboutUs() {
-  const teamCards = team.map((member) => (
-    <Card key={member.name} shadow="sm" p="lg" radius="md" withBorder style={{ textAlign: 'center' }}>
-      <Avatar src={member.image} size={120} radius={120} mx="auto" />
-      <Text ta="center" fz="lg" fw={500} mt="md">{member.name}</Text>
-      <Text ta="center" c="dimmed" fz="sm">{member.role}</Text>
-    </Card>
-  ));
-
   return (
     <>
       <Container size="lg" py={80} style={{ textAlign: 'center' }}>
@@ -43,10 +29,15 @@ export default function AboutUs() {
       </Container>
 
       <Container size="lg" py={80} pb={{ base: 80, md: 100 }}>
-        <Title order={2} style={{ textAlign: 'center', marginBottom: '3rem' }}>Our Team</Title>
-        <SimpleGrid cols={3} spacing="xl">
-          {teamCards}
-        </SimpleGrid>
+        <Title order={2} style={{ textAlign: 'center', marginBottom: '3rem' }}>Our Founder</Title>
+        <Card shadow="sm" p="lg" radius="md" withBorder style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto' }}>
+          <Avatar src="https://i.pravatar.cc/150?u=dwijal" size={120} radius={120} mx="auto" />
+          <Text ta="center" fz="lg" fw={500} mt="md">Dwijal Trivedi</Text>
+          <Text ta="center" c="dimmed" fz="sm">Founder</Text>
+          <Text ta="center" mt="md">
+            Dwijal is passionate about empowering businesses through innovative lead generation solutions. With extensive experience in sales and marketing, she founded Lumvera to bridge the gap between businesses and their ideal customers, driving sustainable growth and measurable results.
+          </Text>
+        </Card>
       </Container>
     </>
   );
