@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Solutions from './pages/Solutions';
 import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
+import LeadResources from './pages/LeadResources';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
 
@@ -18,6 +19,7 @@ export default function App() {
   const links = [
     { label: 'Home', link: '/' },
     { label: 'Products', link: '/products' },
+    { label: 'Resources', link: '/lead-resources' },
     { label: 'Solutions', link: '/solutions' },
     { label: 'About Us', link: '/about' },
     { label: 'Contact', link: '/contact' },
@@ -39,7 +41,7 @@ export default function App() {
         <Container size="xl" h="100%">
           <Group justify="space-between" h="100%">
             <Text size="xl" fw={700} component={RouterLink} to="/" c="brand.5">
-              Lumvera
+              EmberLane
             </Text>
             
             <Group gap="sm" visibleFrom="sm">
@@ -102,6 +104,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/:productId" element={<ProductDetail />} />
+          <Route path="/lead-resources" element={<LeadResources />} />
           <Route path="/solutions" element={<Solutions />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<ContactUs />} />

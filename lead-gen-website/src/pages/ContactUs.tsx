@@ -27,7 +27,7 @@ export default function ContactUs() {
     setSubmitStatus('idle');
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('https://us-central1-lumvera-c231c.cloudfunctions.net/sendContactEmail', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
