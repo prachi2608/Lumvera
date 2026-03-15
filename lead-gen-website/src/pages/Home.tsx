@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Container, Title, Text, Button, Group, SimpleGrid, Card, ThemeIcon, Progress, Badge, Stack } from '@mantine/core';
 import { FiCheckCircle, FiX } from 'react-icons/fi';
-import { FiTarget, FiZap,FiHeart,FiShield, FiCheck, FiUsers, FiGlobe } from 'react-icons/fi';
+import { FiZap, FiHeart, FiShield } from 'react-icons/fi';
 import { useState } from 'react';
 
 
