@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Container, Title, Text, Button, Group, SimpleGrid, Card, ThemeIcon, Progress, Badge, Stack } from '@mantine/core';
-import { FiZap, FiHeart, FiShield, FiCheckCircle, FiX } from 'react-icons/fi';
+import { FiCheckCircle, FiX } from 'react-icons/fi';
+import { FiTarget, FiZap,FiHeart,FiShield, FiCheck, FiUsers, FiGlobe } from 'react-icons/fi';
 import { useState } from 'react';
+
+
 
 export default function Home() {
   return (
@@ -17,7 +20,7 @@ export default function Home() {
             lineHeight: 1.2
           }}
         >
-          We Build and Manage Your Outbound Engine
+          Driven by Ethics. Focused on Results.
         </Title>
         <Text
           size="lg"
@@ -26,6 +29,13 @@ export default function Home() {
           style={{ maxWidth: '100%', lineHeight: 1.6 }}
         >
           From targeting to booked meetings. Drive growth with our expert lead generation services.
+        </Text>
+        <Text
+          size="xl"
+          mb={40}
+          style={{ maxWidth: '800px', lineHeight: 1.6, margin: '0 auto' }}
+        >
+          EmberLane helps early-stage startups build predictable B2B pipeline through outbound and partnerships. We act as an extended sales team, helping founders move from inconsistent outreach to a structured and scalable sales motion.
         </Text>
         <Group justify="center" gap="md">
           <Button component={Link} to="/contact" size="lg" style={{ width: '100%', '@media (min-width: 640px)': { width: 'auto' } }}>
@@ -36,6 +46,8 @@ export default function Home() {
           </Button>
         </Group>
       </Container>
+
+
 
       {/* Lead Generation Challenge Game */}
       <Container size="lg" py={{ base: 40, md: 80 }}>
@@ -49,7 +61,7 @@ export default function Home() {
       </Container>
 
       {/* Value Highlights - Mobile Optimized */}
-      <Container size="lg" py={{ base: 60, md: 80 }} px={{ base: 20, md: undefined }}>
+      <Container size="lg" py={{ base: 60, md: 90 }} px={{ base: 20, md: undefined }}>
         <Title
           order={2}
           style={{
@@ -58,10 +70,10 @@ export default function Home() {
             fontSize: 'clamp(1.8rem, 6vw, 2.5rem)'
           }}
         >
-          Value Highlights
+          Why Choose EmberLane?
         </Title>
         <SimpleGrid
-          cols={{ base: 1, sm: 2, md: 3 }}
+          cols={{ base: 1, sm: 2, md: 4 }}
           spacing="xl"
           style={{ alignItems: 'stretch' }}
         >
@@ -94,7 +106,7 @@ export default function Home() {
                 marginBottom: '0.75rem'
               }}
             >
-              Lightning Fast
+              Startup-Friendly
             </Title>
             <Text
               c="dimmed"
@@ -104,7 +116,7 @@ export default function Home() {
                 flex: 1
               }}
             >
-              Built with an optimized architecture for speed and performance across all devices.
+              Flexible engagement models designed for early-stage constraints and founder bandwidth
             </Text>
           </Card>
 
@@ -137,7 +149,7 @@ export default function Home() {
                 marginBottom: '0.75rem'
               }}
             >
-              Growth Focused
+              Quality Focus
             </Title>
             <Text
               c="dimmed"
@@ -147,7 +159,7 @@ export default function Home() {
                 flex: 1
               }}
             >
-              Designed specifically for businesses that want to scale, grow, and dominate their markets.
+              Emphasis on meaningful conversations and pipeline quality over vanity metrics and volume
             </Text>
           </Card>
 
@@ -180,7 +192,8 @@ export default function Home() {
                 marginBottom: '0.75rem'
               }}
             >
-              Secure & Reliable
+Ethical Outreach
+
             </Title>
             <Text
               c="dimmed"
@@ -190,7 +203,49 @@ export default function Home() {
                 flex: 1
               }}
             >
-              Enterprise-grade security and workflows to keep your valuable business data completely safe.
+          Transparent, permission-based approach that respects prospects and builds long-term relationships
+            </Text>
+          </Card>
+            <Card
+            shadow="sm"
+            padding="xl"
+            radius="lg"
+            withBorder
+            style={{
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              textAlign: 'center'
+            }}
+          >
+            <div style={{ marginBottom: '1rem' }}>
+              <ThemeIcon
+                variant="light"
+                size={50}
+                radius={50}
+                style={{ margin: '0 auto' }}
+              >
+                <FiZap size={24} />
+              </ThemeIcon>
+            </div>
+            <Title
+              order={3}
+              size="h4"
+              style={{
+                marginBottom: '0.75rem'
+              }}
+            >
+             Global Experience
+            </Title>
+            <Text
+              c="dimmed"
+              size="sm"
+              style={{
+                lineHeight: 1.6,
+                flex: 1
+              }}
+            >
+            Proven track record across North America, EMEA, and APAC markets with cultural fluency
             </Text>
           </Card>
         </SimpleGrid>

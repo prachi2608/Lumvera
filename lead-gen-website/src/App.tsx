@@ -41,7 +41,7 @@ export default function App() {
         <Container size="xl" h="100%">
           <Group justify="space-between" h="100%">
             <Text size="xl" fw={700} component={RouterLink} to="/" c="brand.5">
-              Lumvera
+              EmberLane
             </Text>
             
             <Group gap="sm" visibleFrom="sm">
