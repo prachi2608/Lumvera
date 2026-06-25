@@ -24,7 +24,7 @@ export default function Solutions() {
 
           <Tabs.Panel value="startups" pt="xl">
             <Center style={{ flexDirection: 'column', textAlign: 'center' }}>
-              <ThemeIcon variant="light" size={60} radius={60} mb="lg"><FiTarget size={32} /></ThemeIcon>
+              <ThemeIcon variant="light" color="yellow" size={60} radius={60} mb="lg"><FiTarget size={32} /></ThemeIcon>
               <Title order={3}>For Startups</Title>
               <Text c="dimmed" mt="sm">Get off the ground with a lean, mean, lead-generating machine.</Text>
             </Center>
@@ -32,7 +32,7 @@ export default function Solutions() {
 
           <Tabs.Panel value="enterprises" pt="xl">
             <Center style={{ flexDirection: 'column', textAlign: 'center' }}>
-              <ThemeIcon variant="light" size={60} radius={60} mb="lg"><FiUsers size={32} /></ThemeIcon>
+              <ThemeIcon variant="light" color="yellow" size={60} radius={60} mb="lg"><FiUsers size={32} /></ThemeIcon>
               <Title order={3}>For Enterprises</Title>
               <Text c="dimmed" mt="sm">Scale your growth with our robust, enterprise-grade solutions.</Text>
             </Center>

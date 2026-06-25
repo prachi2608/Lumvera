@@ -11,16 +11,28 @@ const theme = createTheme({
   primaryColor: 'brand',
   colors: {
     brand: [
-      '#F8F5FF', // Very light pastel purple
-      '#F0EBFF', // Light pastel purple
-      '#E3D9FF', // Soft lavender
-      '#D4C5FF', // Light purple
-      '#C5B1FF', // Medium light purple
-      '#B08FFF', // Pastel purple primary
-      '#9B6BFF', // Slightly deeper purple
-      '#8A4FFF', // Medium purple
-      '#7933FF', // Deeper purple
-      '#6B1FFF', // Dark purple
+      '#E7F3FF', // Very light blue
+      '#D1E9FF', // Light blue
+      '#B3D9FF', // Soft blue
+      '#8AC4FF', // Light blue
+      '#5BA3FF', // Medium light blue
+      '#1877F2', // Facebook blue primary
+      '#1465D6', // Slightly deeper blue
+      '#1155B8', // Medium blue
+      '#0E4599', // Deeper blue
+      '#0B357A', // Dark blue
+    ],
+    yellow: [
+      '#FFF9E6', // Very light yellow
+      '#FFF0B3', // Light yellow
+      '#FFE680', // Soft yellow
+      '#FFDB4D', // Light yellow
+      '#FFD11A', // Medium light yellow
+      '#FFC700', // Yellow primary
+      '#E6B300', // Slightly deeper yellow
+      '#CC9900', // Medium yellow
+      '#B38000', // Deeper yellow
+      '#996600', // Dark yellow
     ],
   },
   fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',

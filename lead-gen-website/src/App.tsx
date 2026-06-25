@@ -11,6 +11,7 @@ import ProductDetail from './pages/ProductDetail';
 import LeadResources from './pages/LeadResources';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
+import PaymentPage from './pages/PaymentPage';
 
 export default function App() {
   const location = useLocation();
@@ -41,7 +42,7 @@ export default function App() {
         <Container size="xl" h="100%">
           <Group justify="space-between" h="100%">
             <Text size="xl" fw={700} component={RouterLink} to="/" c="brand.5">
-              EmberLane
+              StratLane
             </Text>
             
             <Group gap="sm" visibleFrom="sm">
