@@ -157,6 +157,7 @@ export default function ContactUs() {
                 type="submit"
                 fullWidth
                 mt="xl"
+                color="yellow"
                 disabled={isSubmitting}
                 leftSection={isSubmitting ? <Loader size="sm" /> : null}
               >

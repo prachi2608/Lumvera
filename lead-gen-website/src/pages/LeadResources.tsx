@@ -63,7 +63,7 @@ export default function LeadResources() {
           </Text>
         </div>
 
-        <Alert color="violet" mb="lg">
+        <Alert color="brand" mb="lg">
           <Text>
             <strong>Note:</strong> Our resources provide basic tools to help you get started. For comprehensive strategies and implementation support, contact our team for personalized assistance.
           </Text>
@@ -80,13 +80,13 @@ export default function LeadResources() {
           {guides.map((guide, index) => (
             <Card key={index} shadow="sm" p="xl" radius="md" withBorder>
               <Group align="flex-start" gap="lg">
-                <ThemeIcon size={60} radius={60} variant="light" color="violet">
+                <ThemeIcon size={60} radius={60} variant="light" color="yellow">
                   <guide.icon size={30} />
                 </ThemeIcon>
                 <div style={{ flex: 1 }}>
                   <Group mb="sm">
                     <Title order={3}>{guide.title}</Title>
-                    <Badge variant="light" color="violet">{guide.type}</Badge>
+                    <Badge variant="light" color="brand">{guide.type}</Badge>
                   </Group>
                   <Text mb="lg">{guide.description}</Text>
                 </div>
@@ -106,17 +106,17 @@ export default function LeadResources() {
           {downloadableResources.map((resource, index) => (
             <Card key={index} shadow="sm" p="xl" radius="md" withBorder>
               <Group align="flex-start" gap="lg">
-                <ThemeIcon size={60} radius={60} variant="light" color="violet">
+                <ThemeIcon size={60} radius={60} variant="light" color="yellow">
                   <resource.icon size={30} />
                 </ThemeIcon>
                 <div style={{ flex: 1 }}>
                   <Group mb="sm">
                     <Title order={3}>{resource.title}</Title>
-                    <Badge variant="light" color="violet">{resource.type}</Badge>
+                    <Badge variant="light" color="brand">{resource.type}</Badge>
                   </Group>
                   <Text mb="lg">{resource.description}</Text>
                   <Button
-                    color="violet"
+                    color="yellow"
                     rightSection={<FiDownload size={16} />}
                     onClick={() => handleDownload(resource.filePath)}
                   >
@@ -128,9 +128,9 @@ export default function LeadResources() {
           ))}
         </Stack>
 
-        <Card shadow="sm" p="xl" radius="md" withBorder bg="violet.0">
+        <Card shadow="sm" p="xl" radius="md" withBorder bg="brand.0">
           <Stack align="center" gap="md">
-            <ThemeIcon size={60} radius={60} variant="light" color="violet">
+            <ThemeIcon size={60} radius={60} variant="light" color="yellow">
               <FiTarget size={30} />
             </ThemeIcon>
             <Title order={2}>Need Advanced Strategies?</Title>
@@ -140,7 +140,7 @@ export default function LeadResources() {
             <Text size="lg" ta="center" fw={500}>
               Contact us to access advanced tools and personalized guidance.
             </Text>
-            <Button size="lg" component="a" href="/contact">
+            <Button size="lg" color="yellow" component="a" href="/contact">
               Get Expert Help
             </Button>
           </Stack>

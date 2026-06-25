@@ -35,10 +35,10 @@ export default function Home() {
           mb={40}
           style={{ maxWidth: '800px', lineHeight: 1.6, margin: '0 auto' }}
         >
-          EmberLane helps early-stage startups build predictable B2B pipeline through outbound and partnerships. We act as an extended sales team, helping founders move from inconsistent outreach to a structured and scalable sales motion.
+          StratLane helps early-stage startups build predictable B2B pipeline through outbound and partnerships. We act as an extended sales team, helping founders move from inconsistent outreach to a structured and scalable sales motion.
         </Text>
         <Group justify="center" gap="md">
-          <Button component={Link} to="/contact" size="lg" style={{ width: '100%', '@media (min-width: 640px)': { width: 'auto' } }}>
+          <Button component={Link} to="/contact" size="lg" color="yellow" style={{ width: '100%', '@media (min-width: 640px)': { width: 'auto' } }}>
             Get Started - It's Free
           </Button>
           <Button component={Link} to="/products" size="lg" variant="outline" style={{ width: '100%', '@media (min-width: 640px)': { width: 'auto' } }}>
@@ -70,7 +70,7 @@ export default function Home() {
             fontSize: 'clamp(1.8rem, 6vw, 2.5rem)'
           }}
         >
-          Why Choose EmberLane?
+          Why Choose StratLane?
         </Title>
         <SimpleGrid
           cols={{ base: 1, sm: 2, md: 4 }}
@@ -135,6 +135,7 @@ export default function Home() {
             <div style={{ marginBottom: '1rem' }}>
               <ThemeIcon
                 variant="light"
+                color="yellow"
                 size={50}
                 radius={50}
                 style={{ margin: '0 auto' }}
@@ -256,9 +257,14 @@ Ethical Outreach
         <Title order={2} style={{ marginBottom: '1.5rem', fontSize: 'clamp(1.8rem, 5vw, 2.5rem)' }}>
           Ready to Build Something You're Proud Of?
         </Title>
-        <Button component={Link} to="/contact" size="lg" style={{ width: '100%', '@media (min-width: 640px)': { width: 'auto' } }}>
-          Take Me There 🚀
-        </Button>
+        <Group justify="center" gap="md">
+          <Button component={Link} to="/contact" size="lg" style={{ width: '100%', '@media (min-width: 640px)': { width: 'auto' } }}>
+            Take Me There 🚀
+          </Button>
+          <Button component={Link} to="/payment" size="lg" color="yellow" style={{ width: '100%', '@media (min-width: 640px)': { width: 'auto' } }}>
+            Pay Now 💳
+          </Button>
+        </Group>
       </Container>
     </>
   );
@@ -378,7 +384,7 @@ function LeadGenerationGame() {
         </Text>
         <Group justify="center" gap="md">
           <Badge size="lg" color="brand">5 Questions</Badge>
-          <Badge size="lg" color="green">Quick & Fun</Badge>
+          <Badge size="lg" color="yellow">Quick & Fun</Badge>
           <Badge size="lg" color="blue">Learn Something</Badge>
         </Group>
         <Button fullWidth size="lg" mt="xl" onClick={startGame}>
