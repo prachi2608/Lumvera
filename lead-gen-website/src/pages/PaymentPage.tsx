@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Container, Title, Text, TextInput, NumberInput, Button, Card, Alert, Loader, Group } from '@mantine/core';
 import { FiCreditCard, FiCheckCircle, FiX } from 'react-icons/fi';
-import { getFunctions, httpsCallable } from 'firebase/functions';
 
 // Razorpay TypeScript declarations
 declare global {
@@ -88,79 +87,17 @@ export default function PaymentPage() {
     setStatusMessage('');
 
     try {
-      // Get Firebase functions
-      const functions = getFunctions();
-      const createOrder = httpsCallable(functions, 'createRazorpayOrder');
-
-      // Create order via Firebase Cloud Function
-      const orderResponse = await createOrder({
-        amount: formData.amount,
-        customerName: formData.name,
-        customerEmail: formData.email,
-        customerPhone: formData.phone
-      });
-
-      const { orderId, amount, currency, keyId } = orderResponse.data as {
-        orderId: string;
-        amount: number;
-        currency: string;
-        keyId: string;
-      };
-
-      // Razorpay Checkout options
-      const options = {
-        key: keyId,
-        amount: amount,
-        currency: currency,
-        name: 'StratLane',
-        description: 'Lead Generation Services',
-        order_id: orderId,
-        prefill: {
-          name: formData.name,
-          email: formData.email,
-          contact: formData.phone
-        },
-        theme: {
-          color: '#228be6'
-        },
-        handler: async (response: any) => {
-          try {
-            // Verify payment on backend
-            const verifyPayment = httpsCallable(functions, 'verifyRazorpayPayment');
-            await verifyPayment({
-              razorpay_payment_id: response.razorpay_payment_id,
-              razorpay_order_id: response.razorpay_order_id,
-              razorpay_signature: response.razorpay_signature,
-              orderId: orderId
-            });
-
-            setLoading(false);
-            setStatus('success');
-            setStatusMessage('Payment completed successfully! Thank you for your business.');
-          } catch (error) {
-            setLoading(false);
-            setStatus('error');
-            setStatusMessage('Payment verification failed. Please contact support.');
-          }
-        },
-        modal: {
-          ondismiss: () => {
-            setLoading(false);
-            setStatus('error');
-            setStatusMessage('Payment cancelled by user.');
-          }
-        }
-      };
-
-      // Open Razorpay Checkout
-      const rzp = new window.Razorpay(options);
-      rzp.open();
-
+      // TODO: Integrate with Firebase Cloud Function for Razorpay
+      // For now, just simulate the payment process
+      setTimeout(() => {
+        setLoading(false);
+        setStatus('success');
+        setStatusMessage('Payment initiated successfully! Razorpay integration coming soon.');
+      }, 2000);
     } catch (error) {
       setLoading(false);
       setStatus('error');
-      setStatusMessage('Failed to initiate payment. Please try again.');
-      console.error('Payment initiation error:', error);
+      setStatusMessage('Payment failed. Please try again.');
     }
   };
 

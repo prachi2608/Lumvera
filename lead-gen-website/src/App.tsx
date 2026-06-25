@@ -109,6 +109,7 @@ export default function App() {
           <Route path="/solutions" element={<Solutions />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<ContactUs />} />
+          <Route path="/payment" element={<PaymentPage />} />
         </Routes>
       </AppShell.Main>
 
