@@ -35,7 +35,6 @@ export default function App() {
   return (
     <AppShell
       header={{ height: 60 }}
-      footer={{ height: 100, offset: false }}
       padding="md"
     >
       <AppShell.Header withBorder={false}>
@@ -113,37 +112,36 @@ export default function App() {
         </Routes>
       </AppShell.Main>
 
-      <AppShell.Footer withBorder={false} bg="dark.8" c="white">
-        <Container size="xl" py="lg">
-          <Group justify="space-between" align="flex-start">
-            <div>
-              <Text size="xl" fw={700} mb="md">Lumvera</Text>
-              <Text size="sm" c="dimmed">Empowering your digital journey</Text>
-            </div>
-            
-            <Group gap="xs">
-              {socialLinks.map((item, index) => (
-                <Button
-                  key={index}
-                  component="a"
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="subtle"
-                  color="gray"
-                  px="xs"
-                >
-                  <item.icon size={20} />
-                </Button>
-              ))}
-            </Group>
+      {/* Custom Footer - appears at bottom of page content */}
+      <Container size="xl" py="lg" bg="dark.8" c="white">
+        <Group justify="space-between" align="flex-start">
+          <div>
+            <Text size="xl" fw={700} mb="md">StratLane</Text>
+            <Text size="sm" c="dimmed">Empowering your digital journey</Text>
+          </div>
+
+          <Group gap="xs">
+            {socialLinks.map((item, index) => (
+              <Button
+                key={index}
+                component="a"
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="subtle"
+                color="gray"
+                px="xs"
+              >
+                <item.icon size={20} />
+              </Button>
+            ))}
           </Group>
-          
-          <Text size="sm" ta="center" mt="xl" c="dimmed">
-            © {new Date().getFullYear()} Lumvera. All rights reserved.
-          </Text>
-        </Container>
-      </AppShell.Footer>
+        </Group>
+
+        <Text size="sm" ta="center" mt="xl" c="dimmed">
+          © {new Date().getFullYear()} StratLane. All rights reserved.
+        </Text>
+      </Container>
     </AppShell>
   );
 }
